@@ -1,10 +1,10 @@
 # Planner
 
-A SaaS digital planner that replicates a spiral notebook — daily, weekly, and monthly planning pages — in the browser. Phase 1 is a desktop web app.
+Planner is a SaaS digital planner that brings the feel of a spiral notebook to your browser. It gives you dedicated daily, weekly, and monthly planning pages — each auto-saved as you type. No friction, no lost notes. Try it at [https://replace-me.matweaver.com](https://replace-me.matweaver.com). Phase 1 targets desktop browsers.
 
 ## Architecture
 
-Five self-contained services in a multi-repo layout:
+Five self-contained services in a monorepo:
 
 ```
 planner/
@@ -41,23 +41,23 @@ direnv allow auth accounts planner-data proxy frontend
 cd auth && python -m venv .venv && .venv/bin/pip install -r requirements.txt
 cp .env.example .env   # add JWT_SECRET; DATABASE_URL comes from direnv
 .venv/bin/alembic upgrade head
-.venv/bin/uvicorn app.main:app --port 8001 --reload
+.venv/bin/uvicorn app.main:app --port $AUTH_SERVICE_PORT --reload
 
 # 4. Accounts service
 cd accounts && python -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/uvicorn app.main:app --port 8002 --reload
+.venv/bin/uvicorn app.main:app --port $ACCOUNTS_SERVICE_PORT --reload
 
 # 5. Planner data service
 cd planner-data && python -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/uvicorn app.main:app --port 8003 --reload
+.venv/bin/uvicorn app.main:app --port $PLANNER_SERVICE_PORT --reload
 
 # 6. Proxy
 cd proxy && python -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/uvicorn app.main:app --port 8000 --reload
+.venv/bin/uvicorn app.main:app --port $PROXY_PORT --reload
 
 # 7. Frontend
 cd frontend && npm install && npm run dev
-# → http://localhost:5173
+# → http://localhost:$FRONTEND_PORT
 ```
 
 **Environment variables** are layered: `docker-compose.yml` defines the database credentials; `.envrc` at the project root exports them (plus service URLs) for all services. Each service's `.envrc` inherits the parent and then loads its own `.env` on top, so a local `.env` file always wins. Only `auth/.env` needs to be created manually — it holds `JWT_SECRET`, which is intentionally not in `.envrc`.

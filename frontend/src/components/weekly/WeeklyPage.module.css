@@ -1,0 +1,102 @@
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  min-height: 100vh;
+  padding-bottom: var(--space-xl);
+}
+
+.pageHeader {
+  background-color: var(--color-section-header-bg);
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pageTitle {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.weekOfRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-rule);
+  font-size: 13px;
+}
+
+.weekOfLabel {
+  color: var(--color-text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.weekOfInput {
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 1px solid var(--color-input-rule);
+  font-size: 13px;
+  width: 160px;
+}
+
+.glanceTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.glanceRow {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-rule);
+  height: 26px;
+}
+
+.dayLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  width: 36px;
+  flex-shrink: 0;
+  padding-left: var(--space-sm);
+  user-select: none;
+}
+
+.dayDate {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  width: 80px;
+  flex-shrink: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0 var(--space-xs);
+}
+
+.dayText {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  height: 100%;
+  padding: 0 var(--space-xs);
+  font-size: 13px;
+}
+
+.savedIndicator {
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 12px;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 4px;
+}

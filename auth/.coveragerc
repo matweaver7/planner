@@ -1,0 +1,8 @@
+[run]
+concurrency = greenlet
+source = app
+
+[report]
+# Exclude infrastructure wiring that is exercised at runtime but not in unit tests
+omit =
+    app/database.py

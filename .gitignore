@@ -1,0 +1,75 @@
+# ── Environment & secrets ─────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+# Keep .env.example and .envrc (no secrets — just var names and defaults)
+!.env.example
+!.envrc
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Build / packaging
+*.egg-info/
+dist/
+build/
+*.egg
+MANIFEST
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+.pytype/
+
+# ── Node / Frontend ───────────────────────────────────────────────────────────
+node_modules/
+dist/
+coverage/
+
+# Vite cache
+.vite/
+*.local
+
+# TypeScript build info
+*.tsbuildinfo
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+# Keep docker-compose.yml; ignore override files with local secrets
+docker-compose.override.yml
+docker-compose.local.yml
+
+# ── Database ──────────────────────────────────────────────────────────────────
+# Local Postgres / Mongo data volumes (if mounted)
+postgres-data/
+mongo-data/
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── IDEs ──────────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+*.log
+*.pid
